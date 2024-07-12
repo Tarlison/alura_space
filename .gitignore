@@ -140,6 +140,7 @@ ENV/
 env.bak/
 venv.bak/
 python3.12_env/
+static/
 
 # Spyder project settings
 .spyderproject
