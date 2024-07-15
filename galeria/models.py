@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 class Fotografia(models.Model):
 
     CATEGORIAS = [
@@ -16,6 +17,13 @@ class Fotografia(models.Model):
     descricao = models.TextField(null=False, blank=False)
     publicada = models.BooleanField(default=False)
     data = models.DateTimeField(default=timezone.now, blank=True)
+    usuario = models.ForeignKey(
+        to=User,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='user'
+    )
 
     def __str__(self):
         return self.nome
